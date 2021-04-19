@@ -8,6 +8,8 @@ source environment
 # Needs to NOT start with spiffe://
 TRUST_DOMAIN="test.com"
 
+which openssl || (echo "openssl not found"; exit 1)
+which vagrant || (echo "vagrant not found"; exit 1)
 
 cmds/get_trust_bundle.sh > spire_bootstrap.tmp
 
