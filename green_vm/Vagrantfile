@@ -8,7 +8,11 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/8"
   config.vm.network "private_network", ip: "172.30.1.2"
+  # OpenSSL s_client testing 
   config.vm.network "forwarded_port", guest: 44330, host:44330 
+  # Envoy admin interface
+  config.vm.network "forwarded_port", guest: 9901, host:9901 
+  # Actual traffic to the service terminated by Envoy
   config.vm.network "forwarded_port", guest: 20001, host:20001
   config.vm.provision "file", source: "key.pem", destination: "key.pem"
   config.vm.provision "file", source: "cert.pem", destination: "cert.pem"

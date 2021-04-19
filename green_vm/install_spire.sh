@@ -100,5 +100,3 @@ if [[ $? != 0 ]]; then
 	echo "spire-agent cannot fetch an SVID. Is the needed registration entry created on the server?"
 	exit 1
 fi
-
-

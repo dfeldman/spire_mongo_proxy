@@ -57,5 +57,5 @@ sed -i s/TEMPLATE_LISTEN_PORT/${LISTEN_PORT}/g envoy.yaml
 sed -i s/TEMPLATE_UPSTREAM_PORT/${UPSTREAM_PORT}/g envoy.yaml
 sed -i s/TEMPLATE_CLIENT_SPIFFE_ID/${ESCAPED_SPIFFE_ID}/g envoy.yaml
 
-nohup /opt/envoy/getenvoy run standard:1.17.1 -- --config-path envoy.yaml --log-level debug > /var/log/envoy_debug.log 2>&1 </dev/null & 
+nohup /opt/envoy/getenvoy run standard:1.17.1 -- --config-path /opt/envoy/envoy.yaml --log-level trace > /var/log/envoy_debug.log 2>&1 </dev/null & 
 

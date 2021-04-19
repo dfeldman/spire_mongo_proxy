@@ -19,7 +19,7 @@ kind delete cluster --name=blue  # make sure we're starting from a blank slate
 sleep 10
 kind create cluster --name=blue --config=blue-kind-config.yaml
 kind export kubeconfig --name=blue
-sleep 10
+sleep 30
 
 # Install MetalLB on the BLUE cluster
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/master/manifests/namespace.yaml
