@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "install_spire.sh", destination: "install_spire.sh"
   config.vm.provision "file", source: "install_envoy.sh", destination: "install_envoy.sh"
   config.vm.provision "file", source: "dummy_server.sh", destination: "dummy_server.sh"
-
+  config.vm.provision "file", source: "mongo_yum_file", destination: "mongodb-org-4.4.repo"
   # This file is generated as the first step in setup_green_vm.sh. It is important
   # that it is fresh. 
   config.vm.provision "file", source: "../spire_bootstrap.tmp", destination: "/tmp/spire_bootstrap"

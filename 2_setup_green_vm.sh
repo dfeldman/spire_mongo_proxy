@@ -17,6 +17,9 @@ pushd green_vm
 vagrant destroy -f
 vagrant up
 
+# install useful utilities
+yum install -y nc vim lsof
+
 # First, set up OpenSSL just for testing connectivity
 # This opens up a port with a self-signed cert on port 44330 just for testing purposes
 vagrant ssh -- "echo test| openssl s_server -key key.pem -cert cert.pem -accept 44330 -www" &
@@ -85,5 +88,4 @@ if [[ $? -ne 0 ]]; then
         echo "Failed to connect securely to the local envoy"
         exit 1
 fi
-
 
