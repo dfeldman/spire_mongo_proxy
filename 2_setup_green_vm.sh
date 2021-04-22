@@ -55,7 +55,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Finally, install Envoy
-vagrant ssh -- sudo bash install_envoy.sh spiffe://test.com/ns/default/sa/spire-istio-envoy 20001 27017
+vagrant ssh -- sudo bash install_envoy.sh spiffe://test.com/ns/default/sa/spire-envoy-tcp 20001 27017
 if [[ $? -ne 0 ]]; then
         echo "Failed to install Envoy"
         exit 1

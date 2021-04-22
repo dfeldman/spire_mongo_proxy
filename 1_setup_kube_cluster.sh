@@ -16,16 +16,16 @@ which docker || (echo "docker not found"; exit 1)
 
 # First create the BLUE cluster
 kind delete cluster --name=blue  # make sure we're starting from a blank slate
-sleep 10
+sleep 30
 kind create cluster --name=blue --config=blue-kind-config.yaml
 kind export kubeconfig --name=blue
-sleep 30
+sleep 60
 
 # Install MetalLB on the BLUE cluster
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/master/manifests/namespace.yaml
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/master/manifests/metallb.yaml
-sleep 5
+sleep 30
 subnet=`cmds/get_docker_subnet.sh`
 kubectl apply -f - <<EOF
 apiVersion: v1
@@ -75,7 +75,7 @@ kubectl apply -f util/spire-server-lb.yaml
 kubectl apply -f util/spire-nodeport.yaml
 
 # Wait for the LB to get created
-sleep 5
+sleep 30
 # Get a join token for the SPIRE server
 SPIRE_SERVER_IP=$(kubectl get svc/spire-server-lb-service -n spire -o=jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
