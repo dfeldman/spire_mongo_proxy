@@ -72,8 +72,8 @@ service:
     # service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
     # service.beta.kubernetes.io/aws-load-balancer-internal: "true"
   ports:
-    http2:
-      port: 443
+    listenerport:
+      port: 27017
       targetPort: 8000
       protocol: TCP
   ## Used to whitelist certain source CIDRs
