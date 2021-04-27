@@ -10,8 +10,11 @@ The client side is running in a Kind+Kubernetes cluster. The server side is runn
 Run the scripts in order:
 * 1\_setup\_kube\_cluster.sh
 * 2\_setup\_green\_vm.sh
-* 3\_setup\_mongo\_green_vm.sh
-* 4\_setup\_mongo\_kube_cluster.sh
+
+At this point you'll have a working SPIRE setup, with a dummy server running on port 27017 (just a shell script with netcat). The following commands will then set up MongoDB.
+
+* 3\_setup\_mongo\_green\_vm.sh
+* 4\_setup\_mongo\_kube\_cluster.sh
 * 5\_connect\_mongo.sh
 
 This should give you a MongoDB shell.
