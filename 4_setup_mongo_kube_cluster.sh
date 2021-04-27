@@ -7,9 +7,9 @@ BACKEND_ID="spiffe://test.com/backend"
 FRONTEND_ID="spiffe://test.com/ns/default/sa/spire-envoy-tcp"
 TRUST_DOMAIN="spiffe://test.com"
 helm uninstall mongodb
-helm install mongodb bitnami/mongodb --wait
+helm install mongodb --set persistence.enabled=false bitnami/mongodb --wait
 
-#kubectl wait --for=condition=available deployments/mongodb
+kubectl wait --for=condition=available deployments/mongodb
 
 helm uninstall spire-envoy-tcp
 helm install --set mode=frontend \
